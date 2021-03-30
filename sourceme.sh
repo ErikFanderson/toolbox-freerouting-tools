@@ -11,10 +11,10 @@ fi
 # Set MYPYPATH accordingly
 if [ -z "$MYPYPATH" ]
 then
-    export MYPYPATH=$PWD/toolbox-freerouting-tools
+    export MYPYPATH=$PWD/toolbox_freerouting_tools
 else
-    export MYPYPATH=$PWD/toolbox-freerouting-tools:$MYPYPATH
+    export MYPYPATH=$PWD/toolbox_freerouting_tools:$MYPYPATH
 fi
 
-# Set TOOLBOX-FREEROUTING-TOOLS_HOME variable
-export TOOLBOX-FREEROUTING-TOOLS_HOME=$PWD
+# Set TOOLBOX_FREEROUTING_TOOLS_HOME variable
+export TOOLBOX_FREEROUTING_TOOLS_HOME=$PWD
