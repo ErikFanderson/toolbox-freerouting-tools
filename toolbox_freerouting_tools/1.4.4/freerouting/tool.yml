@@ -1,0 +1,79 @@
+# Name must match the class name in __init__.py
+tool: FreeRoutingTool
+namespace: freerouting 
+
+# Dictionary containing all properties/attributes required by the tool
+properties:
+  jar:
+    description: "Path to freerouting jar file"
+    default: null 
+    schema: "file()"
+  execute:
+    description: "Determines whether or not freerouting is actually run (otherwise template rendered and that's it)"
+    default: true
+    schema: "bool()"
+  dsn_file:
+    description: "Path to inputSpectra .dsn file"
+    default: null 
+    schema: "file()"
+  output_format:
+    description: "Output file format"
+    default: "ses" 
+    schema: "enum('ses', 'dsn', 'scr')"
+  num_passes:
+    description: "Sets the upper limit of the number of passes that will be performed"
+    default: 100 
+    schema: "int()"
+  language:
+    description: "Specify language"
+    default: "english" 
+    schema: "enum('english', 'german')"
+# Design rules!
+#schema_includes:
+#  input_delay_constraint:
+#    clock: "str()"
+#    clock_edge: "enum('rise', 'fall')"
+#    port: "str()"
+#    min_delay: "num(min= 0.0)"
+#    max_delay: "num(min= 0.0)"
+#  output_delay_constraint:
+#    clock: "str()"
+#    clock_edge: "enum('rise', 'fall')"
+#    port: "str()"
+#    min_delay: "num(min= 0.0)"
+#    max_delay: "num(min= 0.0)"
+#  port:
+#    name: "str()"
+#    iostandard: "enum('LVCMOS18', 'LVDS')"
+#    package_pin: "str()"
+#    clock: "bool(required=False)"
+#    buffer_type: "str(required=False)"
+#    #drive: "str()"
+#    #slew: "str()"
+#  cfg:
+#    mode: "str()"
+#    bank_voltage_select: "enum('VCCO', 'GND')"
+#    voltage: "num(min=0.0)"
+#  primary_clock:
+#    name: "str()"
+#    object: "str()"
+#    period: "num(min=0.0)"
+#    waveform: "list(num(min=0.0), required=False)"
+#  generated_clock:
+#    name: "str()"
+#    object: "str()"
+#    type: "enum('port', 'pin', 'net', 'none')"
+#    source: "str()"
+#    source_type: "enum('port', 'pin', 'net', 'none')"
+#    edges: "list(int(min=1), required=False)"
+#    edge_shift: "list(num(min=0.0), required=False)"
+#    multiplier: "int(min=1, required=False)"
+#    divisor: "int(min=1, required=False)"
+#  units:
+#    time: "enum('us', 'ns', 'ps')"
+#    capacitance: "str()"
+#    current: "str()"
+#    voltage: "str()"
+#    power: "str()"
+#    resistance: "str()"
+#    altitude: "str()"

@@ -26,7 +26,7 @@ class FreeRoutingTool(JinjaTool):
     def __init__(self, db: Database, log: Callable[[str, LogLevel], None]):
         super(FreeRoutingTool, self).__init__(db, log)
         self.free = self.get_db(self.get_namespace("FreeRoutingTool"))
-        self.bin = BinaryDriver(str(Path(self.free["bin"]).resolve()))
+        self.bin = BinaryDriver("java")
         self.template_file = "my_rules.rules"
         self.render_file = os.path.join(self.get_db("internal.job_dir"), self.template_file)
 
@@ -42,6 +42,7 @@ class FreeRoutingTool(JinjaTool):
         """Actually runs the freerouting command"""
         if self.free["execute"]:
             # Add options
+            self.bin.add_option("-jar", str(Path(self.free["jar"]).resolve))
             self.bin.add_option("-de", self.free["dsn_file"])
             self.bin.add_option("-dr", self.render_file)
             self.bin.add_option("-do", f"output.{self.free['output_format']}")
