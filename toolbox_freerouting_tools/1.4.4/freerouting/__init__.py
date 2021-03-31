@@ -42,9 +42,9 @@ class FreeRoutingTool(JinjaTool):
         """Actually runs the freerouting command"""
         if self.free["execute"]:
             # Add options
-            self.bin.add_option("-jar", str(Path(self.free["jar"]).resolve))
-            self.bin.add_option("-de", self.free["dsn_file"])
-            self.bin.add_option("-dr", self.render_file)
+            self.bin.add_option("-jar", str(Path(self.free["jar"]).resolve()))
+            self.bin.add_option("-de", str(Path(self.free["dsn_file"]).resolve()))
+            self.bin.add_option("-dr", str(Path(self.render_file).resolve()))
             self.bin.add_option("-do", f"output.{self.free['output_format']}")
             self.bin.add_option("-mp", self.free["num_passes"])
             if self.free["language"] != "english":
