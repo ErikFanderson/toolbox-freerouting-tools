@@ -1,0 +1,149 @@
+
+(rules PCB ssp1_chip_board
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 7)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 3.1)
+    )
+    (layer_rule In1.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+    (layer_rule In2.Cu
+      (active off)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+    (clear 127.2 (type "jlcpcb_min"_"jlcpcb_min"))
+  )
+  (padstack "Via[0-3]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_450:200_um"
+    (shape
+      (circle F.Cu 450.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 450.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 450.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 450.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_800:400_um" "Via[0-3]_800:400_um" default
+  )
+  (via 
+    "Via[0-3]_450:200_um" "Via[0-3]_450:200_um" default
+  )
+  (via 
+    "Via[0-3]_800:400_um-kicad_default" "Via[0-3]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_450:200_um-kicad_default" "Via[0-3]_450:200_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_800:400_um-jlcpcb_min" "Via[0-3]_800:400_um" "jlcpcb_min"
+  )
+  (via 
+    "Via[0-3]_450:200_um-jlcpcb_min" "Via[0-3]_450:200_um" "jlcpcb_min"
+  )
+  (via_rule
+    default "Via[0-3]_450:200_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_800:400_um-kicad_default"
+  )
+  (via_rule
+    "jlcpcb_min" "Via[0-3]_450:200_um-jlcpcb_min"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(U2-PadR9)" "Net-(U2-PadP9)" "Net-(U2-PadN9)" "Net-(U2-PadM9)" "Net-(U2-PadL9)" "Net-(U2-PadL8)" "Net-(U2-PadK9)" "Net-(U2-PadK8)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "jlcpcb_min"
+    /gnd "Net-(U2-PadT9)" "Net-(U2-PadS9)" "/pkg_pad_126" "/pkg_pad_124" "/pkg_pad_122" "/pkg_pad_120" "/pkg_pad_118"
+    "/pkg_pad_116" "/pkg_pad_114" "/pkg_pad_112" "/pkg_pad_110" "/pkg_pad_108" "/pkg_pad_106" "/pkg_pad_104" "/pkg_pad_102"
+    "/pkg_pad_100" "/pkg_pad_98" "/pkg_pad_96" "/pkg_pad_94" "/pkg_pad_86" "/pkg_pad_84" "/pkg_pad_82" "/pkg_pad_80"
+    "/pkg_pad_78" "/pkg_pad_76" "/pkg_pad_74" "/pkg_pad_72" "/pkg_pad_66" "/pkg_pad_64" "/pkg_pad_62" "/pkg_pad_60"
+    "/pkg_pad_58" "/pkg_pad_56" "/pkg_pad_54" "/pkg_pad_52" "/pkg_pad_50" "/pkg_pad_48" "/pkg_pad_46" "/pkg_pad_44"
+    "/pkg_pad_42" "/pkg_pad_40" "/pkg_pad_38" "/pkg_pad_36" "/pkg_pad_34" "/pkg_pad_32" "/pkg_pad_24" "/pkg_pad_22"
+    "/pkg_pad_20" "/pkg_pad_18" "/pkg_pad_16" "/pkg_pad_14" "/pkg_pad_12" "/pkg_pad_10" "/pkg_pad_4" "/pkg_pad_2"
+    "/pkg_pad_125" "/pkg_pad_117" "/pkg_pad_115" "/pkg_pad_113" "/pkg_pad_111" "/pkg_pad_109" "/pkg_pad_107" "/pkg_pad_105"
+    "/pkg_pad_103" "/pkg_pad_97" "/pkg_pad_95" "/pkg_pad_93" "/pkg_pad_91" "/pkg_pad_89" "/pkg_pad_87" "/pkg_pad_85"
+    "/pkg_pad_83" "/pkg_pad_81" "/pkg_pad_79" "/pkg_pad_77" "/pkg_pad_75" "/pkg_pad_73" "/pkg_pad_71" "/pkg_pad_69"
+    "/pkg_pad_67" "/pkg_pad_65" "/pkg_pad_63" "/pkg_pad_55" "/pkg_pad_53" "/pkg_pad_51" "/pkg_pad_49" "/pkg_pad_47"
+    "/pkg_pad_45" "/pkg_pad_43" "/pkg_pad_41" "/pkg_pad_35" "/pkg_pad_33" "/pkg_pad_31" "/pkg_pad_29" "/pkg_pad_27"
+    "/pkg_pad_25" "/pkg_pad_23" "/pkg_pad_21" "/pkg_pad_19" "/pkg_pad_17" "/pkg_pad_15" "/pkg_pad_13" "/pkg_pad_11"
+    "/pkg_pad_9" "/pkg_pad_7" "/pkg_pad_5" "/pkg_pad_3" "/pkg_pad_1"
+    (clearance_class "jlcpcb_min")
+    (via_rule jlcpcb_min)
+    (rule
+      (width 127.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+)
