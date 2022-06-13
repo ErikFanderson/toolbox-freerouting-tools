@@ -32,6 +32,10 @@ properties:
     description: "Exclude specific net classes."
     default: []
     schema: "list(str())"
+  rules_file:
+    description: "Explicitly specify a rules file."
+    default: null 
+    schema: "file(required=False)"
   language:
     description: "Specify language"
     default: "english"

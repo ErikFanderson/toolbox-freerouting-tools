@@ -44,7 +44,10 @@ class FreeRoutingTool(JinjaTool):
             # Add options
             self.bin.add_option("-jar", str(Path(self.free["jar"]).resolve()))
             self.bin.add_option("-de", str(Path(self.free["dsn_file"]).resolve()))
-            self.bin.add_option("-dr", str(Path(self.render_file).resolve()))
+            if self.free['rules_file']:
+                self.bin.add_option("-dr", str(Path(self.free['rules_file']).resolve()))
+            else:
+                self.bin.add_option("-dr", str(Path(self.render_file).resolve()))
             self.bin.add_option("-do", f"output.{self.free['output_format']}")
             self.bin.add_option("-mp", self.free["num_passes"])
             if self.free['excluded_net_classes']:
